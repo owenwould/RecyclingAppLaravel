@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
-Route::post('/',[HomeController::class,'indexWithUser']);
-Route::post('/create',[RecycleItemsController::class,'create']);
+Route::get('/',function(){
+    return view('home');
+});
+
