@@ -2,13 +2,12 @@
     <div class="recycleListContainer">
         <div class="heading">
             <h2 id="title">Recycling App  </h2>
-            <add-item-form />
+            <add-item-form  
+            v-on:reloadlist="updateList()"
+            />
             <h3 id="recyclecount"> Total Recycled items {{  total }}</h3>
         </div>
-         
-        <list-view :items="items"
-        v-on:reloadlist="getList()"
-        />
+        <list-view :items="items"/>
     </div>
 </template>
 
@@ -25,6 +24,7 @@ export default {
         return {
             items : [],
             total : 0
+          
         }
     },
     methods: {
@@ -45,6 +45,10 @@ export default {
             .catch( error=> {
                 console.log(error);
             })
+        },
+        updateList() {
+            this.getList();
+            this.getTotalRecycled();
         }
     },
     created() {

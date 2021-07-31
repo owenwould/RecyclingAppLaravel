@@ -6,7 +6,7 @@
         <label for="plastic_bottles">Plastic Bottles</label><br>
         <input type="radio" id="metal_tin" name="recycledItem" value="Metal Tin"  v-model="item.item_name">
         <label for="metal_tin">Metal Tin</label><br>
-        <button type="button" v-on:click="addItem"> Submit </button>
+        <button type="button" v-on:click="addItem()"> Submit </button>
 
     </div>
 
@@ -50,7 +50,7 @@ export default {
 .addItem{
     justify-content: center;
     align-items: center;
-    
+   
 }
 input[type="radio"]{
     background: #f7f7f7;
