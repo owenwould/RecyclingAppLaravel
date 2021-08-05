@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersinfoTable extends Migration
+class CreateRecyclingMaterialTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateUsersinfoTable extends Migration
      */
     public function up()
     {
-
-        if (! Schema::hasTable('usersinfo')) {
-            Schema::create('usersinfo', function (Blueprint $table) {
-                $table->id();
-                $table->string('full_name');
-                $table->integer('points');
-            });
+        if (! Schema::hasTable('recyclingMaterial')) {
+            Schema::create('recyclingMaterial', function (Blueprint $table) {
+            $table->id();
+            $table->string('material_name');
+        });
         }
+        
     }
 
     /**
@@ -30,6 +29,6 @@ class CreateUsersinfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usersinfo');
+        Schema::dropIfExists('recyclingMaterial');
     }
 }

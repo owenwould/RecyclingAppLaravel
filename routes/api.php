@@ -21,10 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/items', [RecycleItemsController::class,'index']);
+Route::get('/items', [RecycleItemsController::class,'getRecycledItems']);
 Route::get('/totalItems', [RecycleItemsController::class,'getTotalRecycled']);
 Route::prefix('/item')->group( function () {
- Route::post('/add',[RecycleItemsController::class,'add']);
-// Route::put('/{id}', [RecycleItemsController::class,'']);
-
+  Route::post('/add',[RecycleItemsController::class,'add']);
 });
+Route::get('/achievements',[RecycleItemsController::class,'getAchievementList']);
+Route::get('/achievement/requirements/',[RecycleItemsController::class,'getAchievementRequirements']);
+Route::get('/users/achievement/',[RecycleItemsController::class,'checkUserAchievement']);
+Route::post('users/achievement/add',[RecycleItemsController::class,'addUserAchievement']);

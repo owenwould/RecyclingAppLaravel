@@ -24,7 +24,6 @@ export default {
         return {
             items : [],
             total : 0
-          
         }
     },
     methods: {

@@ -2,16 +2,12 @@
     <div class="addItem">
         <input type="radio" id="Paper" name="recycledItem" value="Paper"  v-model="item.item_name">
         <label for="paper">Paper</label><br>
-        <input type="radio" id="plastic_bottles" name="recycledItem" value="Plastic Bottles"  v-model="item.item_name">
-        <label for="plastic_bottles">Plastic Bottles</label><br>
+        <input type="radio" id="plastic_bottles" name="recycledItem" value="Plastic Bottle"  v-model="item.item_name">
+        <label for="plastic_bottles">Plastic Bottle</label><br>
         <input type="radio" id="metal_tin" name="recycledItem" value="Metal Tin"  v-model="item.item_name">
         <label for="metal_tin">Metal Tin</label><br>
         <button type="button" v-on:click="addItem()"> Submit </button>
-
     </div>
-
-
-
 </template>
 
 <script>

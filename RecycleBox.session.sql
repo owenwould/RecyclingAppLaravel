@@ -8,7 +8,7 @@ points INT
 -- @BLOCK
 INSERT INTO usersinfo(full_name,points)
 VALUES(
-    "user2",
+    "owen",
     0
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE RecycledItems(
 );
 
 -- @BLOCK
-INSERT INTO recycleditems(item_name,userid,item_count)
+INSERT INTO recycleditems(item_name,user_id,item_count)
 VALUES
     ('Paper',1,1);
 
@@ -33,10 +33,32 @@ CREATE TABLE RecyclingFacts(
     fact_text VARCHARACTER(300)
 );
 
-
 -- @BLOCK
 INSERT INTO recyclingfacts(fact_text)
 VALUES
     ("recyclenow");
     
+-- @BLOCK
+Drop TABLE achievements
 
+-- @BLOCK
+INSERT INTO achievements(name,reward,type)
+VALUES
+    ("Paper Weight",30,1);
+
+-- @BLOCK
+INSERT INTO recyclingMaterial(material_name)
+VALUES
+    ("Any");
+
+
+-- @BLOCK
+INSERT INTO achievementrequirements(achievement_id,material_id,count)
+VALUES
+    (2,1,5);
+
+
+-- @BLOCK
+INSERT INTO user_achievements(userid,completed_at,achievement_id)
+VALUES
+(1,NOW(),1);

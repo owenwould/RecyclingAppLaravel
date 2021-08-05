@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecycleditemsTable extends Migration
+class CreateUserAchievementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,18 @@ class CreateRecycleditemsTable extends Migration
      * @return void
      */
     public function up()
-    {
-        if (! Schema::hasTable('recycleditems')) {
-            Schema::create('recycleditems', function (Blueprint $table) {
+    {   
+        if (! Schema::hasTable('user_achievements')) {
+             Schema::create('user_achievements', function (Blueprint $table) {
             $table->id();
-            $table->string('item_name');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('usersinfo');
-            $table->integer('item_count');
+            $table->timestamp('completed_at');
+            $table->unsignedBigInteger('achievement_id');
+            $table->foreign('achievement_id')->references('id')->on('achievements');
         });
         }
-
-        
+       
     }
 
     /**
@@ -33,6 +33,6 @@ class CreateRecycleditemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recycleditems');
+        Schema::dropIfExists('user_achievements');
     }
 }
